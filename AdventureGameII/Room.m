@@ -10,12 +10,14 @@
 
 @implementation Room
 
-- (void) attachEastOf: (Room*) target{
+- (void) attachEastOf: (Room*) target
+{
     self.west = target;
     target.east = self;
 }
 
-- (void) attachSouthOf: (Room*) target{
+- (void) attachSouthOf: (Room*) target
+{
     self.north = target;
     target.south = self;
 }

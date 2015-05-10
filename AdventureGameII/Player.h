@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Room.h"
+#import "DungeonInhabitant.h"
 
-@interface Player : NSObject
+
+@interface Player : DungeonInhabitant
 
 @property (nonatomic) int health;
-@property (nonatomic) Room* location;
 @property (nonatomic) NSMutableArray* invenotory;
 
-- (instancetype)initWithHealth: (int) health andLocation: (Room*) location;
++ (instancetype)playerWithHealth: (int) health andPosition: (Room*) position;
 @end

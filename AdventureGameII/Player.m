@@ -10,14 +10,19 @@
 
 @implementation Player
 
-- (instancetype)initWithHealth: (int) health andLocation: (Room*) location {
-    self = [super init];
-    if (self){
-        self.health = 100;
-        self.location = location;
-        self.invenotory = [NSMutableArray array];
-    }
-    return self;
++ (instancetype)playerWithHealth: (int) health andPosition: (Room*) position
+{
+    Player* player = [[Player alloc]init];
+    player.health = 100;
+    player.position = position;
+    player.invenotory = [NSMutableArray array];
+    return player;
 }
+
+- (Room*)reportPosition
+{
+    return self.position;
+}
+
 
 @end

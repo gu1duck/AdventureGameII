@@ -11,11 +11,13 @@
 @implementation Dungeon : NSObject
 
 
-+ (instancetype) dungeonWithSizeX: (int) sizeX andY: (int) sizeY{
++ (instancetype) dungeonWithSizeX: (int) sizeX andY: (int) sizeY
+{
     Dungeon* dungeon = [[Dungeon alloc] init];
     dungeon.sizeX = sizeX;
     dungeon.sizeY = sizeY;
-    dungeon.builder = [RoomBuilder roomBuilder];
+    dungeon.sizeZ = 1;
+    dungeon.builder = [DungeonBuilderDelegate dungeonBuilder];
     dungeon.origin = [dungeon.builder buildDungeonWithDimensionsX:sizeX andY:sizeY];
     return dungeon;
 }
@@ -34,25 +36,38 @@
     return room;
 }
 
-- (Room*) navigateWest: (int) number startingFrom: (Room*) origin{
-    if (number > 0 && origin.west){
+- (Room*) navigateWest: (int) number startingFrom: (Room*) origin
+{
+    if (number > 0 && origin.west)
+    {
         return [self navigateWest:number-1 startingFrom:origin.west];
     }
     return origin;
 }
 
-- (Room*) navigateSouth: (int) number startingFrom: (Room*) origin{
-    if (number > 0 && origin.west){
-        return [self navigateSouth:number-1 startingFrom:origin.west];
+- (Room*) navigateSouth: (int) number startingFrom: (Room*) origin
+{
+    if (number > 0 && origin.south)
+    {
+        return [self navigateSouth:number-1 startingFrom:origin.south];
     }
     return origin;
 }
 
 - (Room*) navigateUp: (int) number startingFrom: (Room*) origin{
-    if (number > 0 &&origin.west){
-        return [self navigateUp:number-1 startingFrom:origin.west];
+    if (number > 0 &&origin.up)
+    {
+        return [self navigateUp:number-1 startingFrom:origin.up];
     }
     return origin;
 }
+
+- (BOOL) collisionOf: (DungeonInhabitant*) object1 with: (DungeonInhabitant*) object2{
+    if ([object1 reportPosition] == [object2 reportPosition]){
+        return YES;
+    }
+    return NO;
+}
+
 
 @end
