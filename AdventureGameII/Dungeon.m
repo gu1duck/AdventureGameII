@@ -29,18 +29,18 @@
     int randZ = arc4random_uniform(self.sizeZ);
     
     Room* room = self.origin;
-    room = [self navigateWest:randX startingFrom:room];
+    room = [self navigateEast:randX startingFrom:room];
     room = [self navigateSouth:randY startingFrom:room];
     room = [self navigateUp:randZ startingFrom:room];
     
     return room;
 }
 
-- (Room*) navigateWest: (int) number startingFrom: (Room*) origin
+- (Room*) navigateEast: (int) number startingFrom: (Room*) origin
 {
-    if (number > 0 && origin.west)
+    if (number > 0 && origin.east)
     {
-        return [self navigateWest:number-1 startingFrom:origin.west];
+        return [self navigateEast:number-1 startingFrom:origin.east];
     }
     return origin;
 }

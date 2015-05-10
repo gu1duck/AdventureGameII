@@ -13,12 +13,12 @@
 - (void) promptPlayer:(Player*) player
 {
     NSString* output = @"You are in a dark room. You see exits in the following Directions:\n";
-    output = [self appendExitIfOpenTo:output forDirection:player.position.north withString: @" NORTH"];
-    output = [self appendExitIfOpenTo:output forDirection:player.position.south withString: @" SOUTH"];
-    output = [self appendExitIfOpenTo:output forDirection:player.position.east withString: @" EAST"];
-    output = [self appendExitIfOpenTo:output forDirection:player.position.west withString: @" WEST"];
-    output = [self appendExitIfOpenTo:output forDirection:player.position.up withString: @" UP"];
-    output = [self appendExitIfOpenTo:output forDirection:player.position.down withString: @" DOWN"];
+    output = [self appendExitIfOpenTo:output forDirection:player.position.north withString: @"NORTH "];
+    output = [self appendExitIfOpenTo:output forDirection:player.position.south withString: @"SOUTH "];
+    output = [self appendExitIfOpenTo:output forDirection:player.position.east withString: @"EAST "];
+    output = [self appendExitIfOpenTo:output forDirection:player.position.west withString: @"WEST "];
+    output = [self appendExitIfOpenTo:output forDirection:player.position.up withString: @"UP "];
+    output = [self appendExitIfOpenTo:output forDirection:player.position.down withString: @"DOWN "];
     
     output = [output stringByAppendingString:@"\n"];
     
