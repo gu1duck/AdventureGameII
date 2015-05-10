@@ -69,5 +69,10 @@
     return NO;
 }
 
+//- (void) positionInSeperateRooms:(NSArray*) elementsToPosition{
+//    NSMutableArray* itemsPlaced = [NSMutableArray array];
+//    elementsToPosition[1]
+//}
+
 
 @end

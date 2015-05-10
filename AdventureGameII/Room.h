@@ -16,9 +16,10 @@
 @property(nonatomic) Room* west;
 @property(nonatomic) Room* up;
 @property(nonatomic) Room* down;
-@property (nonatomic) id contents;
+@property(nonatomic) NSDictionary* chalk;
 
 - (void) attachEastOf: (Room*) target;
 - (void) attachSouthOf: (Room*) target;
+- (instancetype)init;
 
 @end

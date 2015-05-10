@@ -15,6 +15,8 @@
 		3F3583381AFFED640099A063 /* Cube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3583371AFFED640099A063 /* Cube.m */; };
 		3F35833B1AFFF2570099A063 /* DungeonInhabitant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35833A1AFFF2570099A063 /* DungeonInhabitant.m */; };
 		3F35833E1AFFF6C00099A063 /* Gem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35833D1AFFF6C00099A063 /* Gem.m */; };
+		3F3583411AFFFE6B0099A063 /* Treasure.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3583401AFFFE6B0099A063 /* Treasure.m */; };
+		3F3583441B0005240099A063 /* IOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3583431B0005240099A063 /* IOController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +48,10 @@
 		3F35833A1AFFF2570099A063 /* DungeonInhabitant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DungeonInhabitant.m; sourceTree = "<group>"; };
 		3F35833C1AFFF6C00099A063 /* Gem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gem.h; sourceTree = "<group>"; };
 		3F35833D1AFFF6C00099A063 /* Gem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gem.m; sourceTree = "<group>"; };
+		3F35833F1AFFFE6B0099A063 /* Treasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treasure.h; sourceTree = "<group>"; };
+		3F3583401AFFFE6B0099A063 /* Treasure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Treasure.m; sourceTree = "<group>"; };
+		3F3583421B0005240099A063 /* IOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOController.h; sourceTree = "<group>"; };
+		3F3583431B0005240099A063 /* IOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				3F3583151AFF25150099A063 /* main.m */,
+				3F3583421B0005240099A063 /* IOController.h */,
+				3F3583431B0005240099A063 /* IOController.m */,
+				3F35833F1AFFFE6B0099A063 /* Treasure.h */,
+				3F3583401AFFFE6B0099A063 /* Treasure.m */,
 				3F35833C1AFFF6C00099A063 /* Gem.h */,
 				3F35833D1AFFF6C00099A063 /* Gem.m */,
 				3F35831C1AFF255D0099A063 /* Dungeon.h */,
@@ -154,10 +164,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3583241AFF29270099A063 /* DungeonBuilderDelegate.m in Sources */,
+				3F3583441B0005240099A063 /* IOController.m in Sources */,
 				3F35833E1AFFF6C00099A063 /* Gem.m in Sources */,
 				3F3583211AFF256F0099A063 /* Room.m in Sources */,
 				3F35833B1AFFF2570099A063 /* DungeonInhabitant.m in Sources */,
 				3F3583341AFF4BCD0099A063 /* Dungeon.m in Sources */,
+				3F3583411AFFFE6B0099A063 /* Treasure.m in Sources */,
 				3F3583161AFF25150099A063 /* main.m in Sources */,
 				3F3583381AFFED640099A063 /* Cube.m in Sources */,
 				3F3583291AFF43830099A063 /* Player.m in Sources */,

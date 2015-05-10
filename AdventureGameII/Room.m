@@ -22,4 +22,18 @@
     target.south = self;
 }
 
+- (instancetype)init{
+    self = [super init];
+    if (self){
+        self.chalk = @{@"north":[NSNull null],
+                       @"south":[NSNull null],
+                       @"east":[NSNull null],
+                       @"west":[NSNull null],
+                       @"ceiling":[NSNull null],
+                       @"floor":[NSNull null]};
+    }
+    return self;
+}
+
+
 @end
