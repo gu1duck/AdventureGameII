@@ -22,16 +22,15 @@
     
     output = [output stringByAppendingString:@"\n"];
     
-//    output = [self appendChalkIn:@"north" inRoom:player.position ifPresentTo:output];
-//    output = [self appendChalkIn:@"south" inRoom:player.position ifPresentTo:output];
-//    output = [self appendChalkIn:@"east" inRoom:player.position ifPresentTo:output];
-//    output = [self appendChalkIn:@"west" inRoom:player.position ifPresentTo:output];
-//    output = [self appendChalkIn:@"ceiling" inRoom:player.position ifPresentTo:output];
-//    output = [self appendChalkIn:@"floor" inRoom:player.position ifPresentTo:output];
+    output = [self appendChalkIn:@"north" inRoom:player.position ifPresentTo:output];
+    output = [self appendChalkIn:@"south" inRoom:player.position ifPresentTo:output];
+    output = [self appendChalkIn:@"east" inRoom:player.position ifPresentTo:output];
+    output = [self appendChalkIn:@"west" inRoom:player.position ifPresentTo:output];
+    output = [self appendChalkIn:@"ceiling" inRoom:player.position ifPresentTo:output];
+    output = [self appendChalkIn:@"floor" inRoom:player.position ifPresentTo:output];
     
     output = [output stringByAppendingString:@"What will you do?\n>"];
     NSLog(@"%@",output);
-    
 }
 
 - (NSString*) appendExitIfOpenTo:(NSString*)output forDirection:(Room*)exitDirection withString:(NSString*) exitDescription{
@@ -43,7 +42,7 @@
 }
 
 - (NSString*) appendChalkIn:(NSString*) chalkPosition inRoom: (Room*) room ifPresentTo:(NSString*)output{
-    if (room.chalk[chalkPosition])
+    if (room.chalk[chalkPosition] != [NSNull null])
     {
         output = [output stringByAppendingString:@"Somebody has written \""];
         output = [output stringByAppendingString:room.chalk[chalkPosition]];
@@ -58,5 +57,7 @@
     }
     return output;
 }
+
+
 
 @end
