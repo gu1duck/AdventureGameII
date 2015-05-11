@@ -24,5 +24,19 @@
     return self.position;
 }
 
+- (BOOL) moveInto: (Room*) room
+{
+    if (room)
+    {
+        self.position = room;
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+    
+}
+
 
 @end

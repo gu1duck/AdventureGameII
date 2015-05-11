@@ -16,4 +16,5 @@
 @property (nonatomic) NSMutableArray* invenotory;
 
 + (instancetype)playerWithHealth: (int) health andPosition: (Room*) position;
+- (BOOL) moveInto: (Room*) room;
 @end

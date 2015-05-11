@@ -11,6 +11,9 @@
 #import "Room.h"
 
 @interface IOController : NSObject
+
 - (void) promptPlayer:(Player*) player;
++ (NSString*) getInput;
+- (void)parseInput: (NSString*) input forPlayer:(Player*)player;
 
 @end

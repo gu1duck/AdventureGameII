@@ -24,6 +24,7 @@
 + (instancetype) dungeonWithSizeX: (int) sizeX andY: (int) sizeY;
 - (BOOL) collisionOf: (DungeonInhabitant*) object1 with: (DungeonInhabitant*) object2;
 - (Room*) randomRoom;
+- (BOOL) movePlayer: (Player*) player intoRoom: (Room*) room;
 //- (void) positionInSeperateRooms:(NSArray*) elementsToPosition;
 
 @end

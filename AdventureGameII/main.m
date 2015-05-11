@@ -41,8 +41,11 @@ int main(int argc, const char * argv[])
         {
             treasure.position = [dungeon randomRoom];
         }
-        
-        [io promptPlayer:player];
+        while (true) {
+            [io promptPlayer:player];
+            NSString* input = [IOController getInput];
+            [io parseInput:input forPlayer:player];
+        }
         
         
     }
