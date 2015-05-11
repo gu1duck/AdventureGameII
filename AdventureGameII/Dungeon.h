@@ -21,11 +21,13 @@
 @property (nonatomic) int sizeZ;
 @property (nonatomic) Room* origin;
 @property (nonatomic) DungeonBuilderDelegate* builder;
+@property (nonatomic) BOOL gameOver;
 
 + (instancetype) dungeonWithSizeX: (int) sizeX andY: (int) sizeY;
 - (BOOL) collisionOf: (DungeonInhabitant*) object1 with: (DungeonInhabitant*) object2;
 - (Room*) randomRoom;
 - (void) ensureSeperateRoomsForPlayer: (Player*) player cube: (Cube*) cube gem: (Gem*) gem andTreasure: (Treasure*) treasure;
-
+- (void) resolveCollisionsBetweenPlayer: (Player*) player cube: (Cube*) cube gem: (Gem*) gem andTreasure: (Treasure*) treasure;
+- (Room*) roomUnoccupiedByPlayer: (Player*) player cube: (Cube*) cube gem:(Gem*) gem orTreasure:(Treasure*)treasure;
 
 @end

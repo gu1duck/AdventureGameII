@@ -22,16 +22,16 @@ int main(int argc, const char * argv[])
         IOController* io = [IOController new];
         
         Player* player = [Player playerWithHealth:100 andPosition:[dungeon randomRoom]];
-        Cube* cube = [[Cube alloc] initWithPositionOf:[dungeon randomRoom]];
-        Gem* gem = [[Gem alloc] initWithPositionOf:[dungeon randomRoom]];
-        Treasure* treasure = [[Treasure alloc] initWithPositionOf:[dungeon randomRoom]];
+        Cube* cube = [[Cube alloc] init];
+        Gem* gem = [[Gem alloc] init];
+        Treasure* treasure = [[Treasure alloc] init];
         [dungeon ensureSeperateRoomsForPlayer:player cube:cube gem:gem andTreasure:treasure];
         
-        while (true) {
+        while (dungeon.gameOver == NO) {
             [io promptPlayer:player];
             NSString* input = [IOController getInput];
             [io parseInput:input forPlayer:player];
-            
+            [dungeon resolveCollisionsBetweenPlayer:player cube:cube gem:gem andTreasure:treasure];
         }
         
         

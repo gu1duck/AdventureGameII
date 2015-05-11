@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "DungeonInhabitant.h"
+#import "Cube.h"
+#import "treasure.h"
+#import "Gem.h"
 
 
 @interface Player : DungeonInhabitant
@@ -17,4 +20,8 @@
 
 + (instancetype)playerWithHealth: (int) health andPosition: (Room*) position;
 - (BOOL) moveInto: (Room*) room;
+- (BOOL) encounterCube: (Cube*) cube withOrWithoutGem: (Gem*) gem;
+- (void) acquireGem: (Gem*) gem;
+- (void) acquireTreasure: (Treasure*) treasure;
+
 @end

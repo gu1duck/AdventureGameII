@@ -19,7 +19,9 @@
     dungeon.sizeZ = 1;
     dungeon.builder = [DungeonBuilderDelegate dungeonBuilder];
     dungeon.origin = [dungeon.builder buildDungeonWithDimensionsX:sizeX andY:sizeY];
+    dungeon.gameOver = NO;
     return dungeon;
+    
 }
 
 - (Room*) randomRoom
@@ -70,21 +72,58 @@
 }
 
 - (void) ensureSeperateRoomsForPlayer: (Player*) player cube: (Cube*) cube gem: (Gem*) gem andTreasure: (Treasure*) treasure{
-    while([self collisionOf:cube with:player])
+//    while([self collisionOf:cube with:player])
+//    {
+//        cube.position = [self randomRoom];
+//    }
+//    while([self collisionOf:gem with:player] ||
+//          [self collisionOf:gem with:cube])
+//    {
+//        gem.position = [self randomRoom];
+//    }
+//    while ([self collisionOf:treasure with:player] ||
+//           [self collisionOf:treasure with:cube] ||
+//           [self collisionOf:treasure with:gem])
+//    {
+//        treasure.position = [self randomRoom];
+//    }
+    gem.position = [self roomUnoccupiedByPlayer:player cube:cube gem:gem orTreasure:treasure];
+    cube.position = [self roomUnoccupiedByPlayer:player cube:cube gem:gem orTreasure:treasure];
+    treasure.position = [self roomUnoccupiedByPlayer:player cube:cube gem:gem orTreasure:treasure];
+}
+
+- (void) resolveCollisionsBetweenPlayer: (Player*) player cube: (Cube*) cube gem: (Gem*) gem andTreasure: (Treasure*) treasure
+{
+    if ([self collisionOf:player with:cube])
     {
-        cube.position = [self randomRoom];
+        self.gameOver = [player encounterCube: cube withOrWithoutGem: gem];
+        if (!self.gameOver)
+        {
+        cube.position = [self roomUnoccupiedByPlayer:player cube:cube gem:gem orTreasure:treasure];
+        }
     }
-    while([self collisionOf:gem with:player] ||
-          [self collisionOf:gem with:cube])
+    if ([self collisionOf:player with:gem]){
+        [player acquireGem: gem];
+    }
+    if ([self collisionOf:player with:treasure]){
+        [player acquireTreasure: treasure];
+        self.gameOver = YES;
+    }
+}
+
+- (Room*) roomUnoccupiedByPlayer: (Player*) player cube: (Cube*) cube gem:(Gem*) gem orTreasure:(Treasure*)treasure
+{
+    Room* room = [self randomRoom];
+    
+    while ([player reportPosition] == room ||
+           [cube reportPosition] == room ||
+           [gem reportPosition] == room ||
+           [treasure reportPosition] == room)
     {
-        gem.position = [self randomRoom];
+        room = [self randomRoom];
     }
-    while ([self collisionOf:treasure with:player] ||
-           [self collisionOf:treasure with:cube] ||
-           [self collisionOf:treasure with:gem])
-    {
-        treasure.position = [self randomRoom];
-    }
+    
+    return room;
 }
 
 //- (void) positionInSeperateRooms:(NSArray*) elementsToPosition{

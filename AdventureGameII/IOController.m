@@ -30,7 +30,7 @@
             break;
         case 's':
         case 'S':
-            [self movePlayer:player toRoom:player.position.south withOutput:@"SUOTH"];
+            [self movePlayer:player toRoom:player.position.south withOutput:@"SOUTH"];
             break;
         case 'e':
         case 'E':
