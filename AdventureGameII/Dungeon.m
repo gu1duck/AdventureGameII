@@ -69,7 +69,23 @@
     return NO;
 }
 
-
+- (void) ensureSeperateRoomsForPlayer: (Player*) player cube: (Cube*) cube gem: (Gem*) gem andTreasure: (Treasure*) treasure{
+    while([self collisionOf:cube with:player])
+    {
+        cube.position = [self randomRoom];
+    }
+    while([self collisionOf:gem with:player] ||
+          [self collisionOf:gem with:cube])
+    {
+        gem.position = [self randomRoom];
+    }
+    while ([self collisionOf:treasure with:player] ||
+           [self collisionOf:treasure with:cube] ||
+           [self collisionOf:treasure with:gem])
+    {
+        treasure.position = [self randomRoom];
+    }
+}
 
 //- (void) positionInSeperateRooms:(NSArray*) elementsToPosition{
 //    NSMutableArray* itemsPlaced = [NSMutableArray array];

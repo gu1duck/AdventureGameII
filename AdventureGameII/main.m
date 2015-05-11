@@ -25,26 +25,13 @@ int main(int argc, const char * argv[])
         Cube* cube = [[Cube alloc] initWithPositionOf:[dungeon randomRoom]];
         Gem* gem = [[Gem alloc] initWithPositionOf:[dungeon randomRoom]];
         Treasure* treasure = [[Treasure alloc] initWithPositionOf:[dungeon randomRoom]];
+        [dungeon ensureSeperateRoomsForPlayer:player cube:cube gem:gem andTreasure:treasure];
         
-        while([dungeon collisionOf:cube with:player])
-        {
-            cube.position = [dungeon randomRoom];
-        }
-        while([dungeon collisionOf:gem with:player] ||
-              [dungeon collisionOf:gem with:cube])
-        {
-            gem.position = [dungeon randomRoom];
-        }
-        while ([dungeon collisionOf:treasure with:player] ||
-              [dungeon collisionOf:treasure with:cube] ||
-              [dungeon collisionOf:treasure with:gem])
-        {
-            treasure.position = [dungeon randomRoom];
-        }
         while (true) {
             [io promptPlayer:player];
             NSString* input = [IOController getInput];
             [io parseInput:input forPlayer:player];
+            
         }
         
         

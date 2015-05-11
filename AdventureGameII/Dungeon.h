@@ -13,6 +13,7 @@
 #import "Player.h"
 #import "Cube.h"
 #import "Gem.h"
+#import "Treasure.h"
 
 @interface Dungeon : NSObject
 @property (nonatomic) int sizeX;
@@ -24,7 +25,7 @@
 + (instancetype) dungeonWithSizeX: (int) sizeX andY: (int) sizeY;
 - (BOOL) collisionOf: (DungeonInhabitant*) object1 with: (DungeonInhabitant*) object2;
 - (Room*) randomRoom;
-- (BOOL) movePlayer: (Player*) player intoRoom: (Room*) room;
-//- (void) positionInSeperateRooms:(NSArray*) elementsToPosition;
+- (void) ensureSeperateRoomsForPlayer: (Player*) player cube: (Cube*) cube gem: (Gem*) gem andTreasure: (Treasure*) treasure;
+
 
 @end
